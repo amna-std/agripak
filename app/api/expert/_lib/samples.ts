@@ -1,0 +1,118 @@
+/**
+ * Placeholder entries for the expert directory.
+ *
+ * These are illustrative profiles used only when the database has no expert on
+ * record — they are NOT real advisers. Every entry is returned with
+ * `source: "sample"` and `isSample: true` so the UI can label them, and they
+ * deliberately carry no phone number or email so nobody can be contacted
+ * under a false identity. They cover all four provinces plus AJK and
+ * Gilgit-Baltistan rather than defaulting to one city.
+ */
+export const SAMPLE_EXPERTS = [
+  {
+    _id: "sample-expert-wheat-faisalabad",
+    name: "Dr. Muhammad Aslam",
+    qualification: "PhD Agronomy, University of Agriculture Faisalabad",
+    specialization: ["crop_disease", "soil_management"],
+    crops: ["wheat", "maize"],
+    experience: 18,
+    languages: ["ur", "pa", "en"],
+    district: "Faisalabad",
+    province: "Punjab",
+    consultationFee: 1500,
+    bio: "Rabi season agronomy — wheat variety selection, rust management and balanced fertiliser planning.",
+  },
+  {
+    _id: "sample-expert-cotton-multan",
+    name: "Fatima Bibi",
+    qualification: "MSc Entomology, Bahauddin Zakariya University",
+    specialization: ["pest_control", "crop_disease"],
+    crops: ["cotton", "chickpea"],
+    experience: 11,
+    languages: ["ur", "sd", "en"],
+    district: "Multan",
+    province: "Punjab",
+    consultationFee: 1200,
+    bio: "Cotton IPM specialist — pink bollworm, whitefly and safe pesticide dosing for smallholders.",
+  },
+  {
+    _id: "sample-expert-rice-larkana",
+    name: "Abdul Rehman",
+    qualification: "MSc Agriculture (Water Management), Sindh Agriculture University Tandojam",
+    specialization: ["irrigation", "soil_management"],
+    crops: ["rice", "sugarcane"],
+    experience: 14,
+    languages: ["sd", "ur"],
+    district: "Larkana",
+    province: "Sindh",
+    consultationFee: 1000,
+    bio: "Basmati and IRRI rice water management, canal warabandi planning and saline soil reclamation.",
+  },
+  {
+    _id: "sample-expert-soil-peshawar",
+    name: "Dr. Zainab Khan",
+    qualification: "PhD Soil Science, University of Agriculture Peshawar",
+    specialization: ["soil_management", "organic_farming"],
+    crops: ["maize", "tomato", "potato"],
+    experience: 16,
+    languages: ["ps", "ur", "en"],
+    district: "Peshawar",
+    province: "Khyber Pakhtunkhwa",
+    consultationFee: 1800,
+    bio: "Soil testing interpretation, organic matter build-up and fertiliser economics for hill farming.",
+  },
+  {
+    _id: "sample-expert-dates-turbat",
+    name: "Imran Baloch",
+    qualification: "BSc (Hons) Horticulture, Lasbela University",
+    specialization: ["horticulture", "pest_control"],
+    crops: ["dates", "onion"],
+    experience: 9,
+    languages: ["ur", "en"],
+    district: "Kech (Turbat)",
+    province: "Balochistan",
+    consultationFee: 1000,
+    bio: "Date palm orchard care, post-harvest handling and drip irrigation in arid districts.",
+  },
+  {
+    _id: "sample-expert-orchards-gilgit",
+    name: "Sana Gul",
+    qualification: "MSc Horticulture, Karakoram International University",
+    specialization: ["horticulture", "crop_disease"],
+    crops: ["apple", "apricot", "potato"],
+    experience: 8,
+    languages: ["ur", "en"],
+    district: "Gilgit",
+    province: "Gilgit-Baltistan",
+    consultationFee: 1200,
+    bio: "Mountain orchard management — pruning, frost protection and cold-storage planning.",
+  },
+  {
+    _id: "sample-expert-livestock-muzaffarabad",
+    name: "Dr. Bilal Ahmed",
+    qualification: "DVM, University of Poonch Rawalakot",
+    specialization: ["animal_husbandry", "crop_disease"],
+    crops: ["maize", "berseem"],
+    experience: 12,
+    languages: ["ur", "pa", "en"],
+    district: "Muzaffarabad",
+    province: "Azad Jammu & Kashmir",
+    consultationFee: 1100,
+    bio: "Dairy buffalo nutrition, fodder crop planning and common livestock disease prevention.",
+  },
+  {
+    _id: "sample-expert-sugarcane-rahimyarkhan",
+    name: "Muhammad Yousaf",
+    qualification: "MSc Agronomy, Islamia University Bahawalpur",
+    specialization: ["irrigation", "soil_management"],
+    crops: ["sugarcane", "cotton", "mango"],
+    experience: 20,
+    languages: ["ur", "pa"],
+    district: "Rahim Yar Khan",
+    province: "Punjab",
+    consultationFee: 1400,
+    bio: "Sugarcane ratoon management, mango orchard nutrition and laser land levelling advice.",
+  },
+]
+
+export type SampleExpert = (typeof SAMPLE_EXPERTS)[number]

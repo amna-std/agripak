@@ -1,0 +1,575 @@
+/* ==========================================================================
+   AgriPak design system
+   --------------------------------------------------------------------------
+   Pakistani theme, mobile-first (target: a low-end Android at 360px, held in
+   direct sunlight). Everything is driven by CSS custom properties so shadcn/ui
+   primitives in components/ui/* restyle themselves — do not hardcode hex values
+   in components; use the Tailwind tokens below.
+
+   Brand palette
+     Pakistan flag green   #01411C   -> --primary / --brand
+     Accent green          #046A38   -> --brand-accent / --ring
+     White                 #FFFFFF   -> --background (light)
+     Gold                  #D4AF37   -> --gold (highlights, badges, premium)
+
+   Tailwind classes you get for free (see tailwind.config.ts):
+     bg-primary  text-primary-foreground  border-border  bg-card  text-muted-foreground
+     bg-brand  bg-brand-accent  text-gold  bg-success  bg-warning  bg-info
+     font-sans (Inter)  font-urdu (Nastaliq)  font-naskh
+     min-h-tap (44px)   safe-b (iOS safe area)
+
+   Fonts
+     Inter is loaded with next/font in app/layout.tsx (Latin text).
+     The Arabic-script faces are loaded here from Google Fonts, because they are
+     only needed for four of the five locales and next/font would inline them for
+     everyone. `display=swap` keeps first paint fast on slow rural connections.
+       - Noto Nastaliq Urdu -> Urdu + Punjabi (Shahmukhi)
+       - Noto Naskh Arabic  -> Sindhi + Pashto (Nastaliq lacks some ڏ ٺ ږ ښ shapes)
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ---- font stacks -------------------------------------------------- */
+    /* `--font-inter` is only set if layout.tsx switches next/font to `variable`
+       mode; the fallback keeps this valid either way. */
+    --font-latin: var(--font-inter, Inter), "Segoe UI", system-ui, -apple-system, sans-serif;
+    --font-nastaliq: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Noto Naskh Arabic", serif;
+    --font-naskh: "Noto Naskh Arabic", "Noto Nastaliq Urdu", "Segoe UI", serif;
+
+    /* ---- shadcn semantic tokens — LIGHT ------------------------------- */
+    --background: 0 0% 100%;
+    --foreground: 150 30% 8%; /* near-black green, 15:1 on white */
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 30% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 30% 8%;
+
+    /* Pakistan flag green #01411C */
+    --primary: 145 97% 13%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Pale green surface, used for chips / secondary buttons */
+    --secondary: 146 32% 94%;
+    --secondary-foreground: 145 60% 14%;
+
+    --muted: 150 20% 96%;
+    --muted-foreground: 150 12% 32%; /* deliberately dark: 7:1, readable outdoors */
+
+    /* Hover/active surface. Pale gold so it reads as a highlight, not a mistake. */
+    --accent: 46 70% 92%;
+    --accent-foreground: 42 80% 18%;
+
+    --destructive: 0 74% 40%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 14% 84%;
+    --input: 150 14% 78%; /* stronger than --border: field edges must be obvious */
+    --ring: 151 93% 22%;
+
+    --radius: 0.75rem;
+
+    /* ---- AgriPak brand extensions ------------------------------------- */
+    --brand: 145 97% 13%; /* #01411C */
+    --brand-foreground: 0 0% 100%;
+    --brand-accent: 151 93% 22%; /* #046A38 */
+    --brand-accent-foreground: 0 0% 100%;
+    --gold: 46 65% 45%; /* #D4AF37 darkened for AA text on white */
+    --gold-foreground: 42 90% 10%;
+    --gold-surface: 46 78% 94%;
+
+    --success: 148 72% 26%;
+    --success-foreground: 0 0% 100%;
+    --warning: 36 96% 40%;
+    --warning-foreground: 0 0% 100%;
+    --info: 202 84% 32%;
+    --info-foreground: 0 0% 100%;
+
+    /* Semantic weather/market accents */
+    --price-up: 148 72% 26%;
+    --price-down: 0 74% 40%;
+
+    /* ---- charts (recharts) -------------------------------------------- */
+    --chart-1: 145 97% 20%;
+    --chart-2: 151 93% 32%;
+    --chart-3: 46 65% 45%;
+    --chart-4: 202 84% 38%;
+    --chart-5: 18 70% 45%;
+
+    /* ---- sidebar (referenced by tailwind.config.ts) -------------------- */
+    --sidebar-background: 146 32% 97%;
+    --sidebar-foreground: 150 30% 12%;
+    --sidebar-primary: 145 97% 13%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 146 32% 92%;
+    --sidebar-accent-foreground: 145 60% 14%;
+    --sidebar-border: 150 14% 86%;
+    --sidebar-ring: 151 93% 22%;
+
+    /* ---- layout ------------------------------------------------------- */
+    --header-height: 3.5rem;
+    --bottom-nav-height: 4rem;
+    --tap-target: 44px;
+  }
+
+  .dark {
+    /* Dark mode is a night/low-light mode, not an inverted theme: backgrounds keep
+       a green cast, and --primary lightens so it stays visible on dark surfaces. */
+    --background: 155 24% 6%;
+    --foreground: 140 14% 96%;
+
+    --card: 155 22% 9%;
+    --card-foreground: 140 14% 96%;
+
+    --popover: 155 24% 8%;
+    --popover-foreground: 140 14% 96%;
+
+    --primary: 151 62% 44%;
+    --primary-foreground: 150 45% 6%;
+
+    --secondary: 152 14% 16%;
+    --secondary-foreground: 140 14% 96%;
+
+    --muted: 152 12% 15%;
+    --muted-foreground: 145 10% 70%;
+
+    --accent: 46 32% 20%;
+    --accent-foreground: 46 78% 82%;
+
+    --destructive: 0 66% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 152 12% 20%;
+    --input: 152 12% 24%;
+    --ring: 151 62% 44%;
+
+    --brand: 151 62% 44%;
+    --brand-foreground: 150 45% 6%;
+    --brand-accent: 151 70% 34%;
+    --brand-accent-foreground: 0 0% 100%;
+    --gold: 46 72% 60%;
+    --gold-foreground: 42 90% 8%;
+    --gold-surface: 44 30% 16%;
+
+    --success: 148 55% 42%;
+    --success-foreground: 150 45% 6%;
+    --warning: 38 90% 55%;
+    --warning-foreground: 40 90% 8%;
+    --info: 202 70% 55%;
+    --info-foreground: 205 60% 8%;
+
+    --price-up: 148 55% 46%;
+    --price-down: 0 70% 58%;
+
+    --chart-1: 151 62% 48%;
+    --chart-2: 148 45% 62%;
+    --chart-3: 46 72% 60%;
+    --chart-4: 202 70% 58%;
+    --chart-5: 18 66% 58%;
+
+    --sidebar-background: 155 22% 8%;
+    --sidebar-foreground: 140 14% 92%;
+    --sidebar-primary: 151 62% 44%;
+    --sidebar-primary-foreground: 150 45% 6%;
+    --sidebar-accent: 152 14% 15%;
+    --sidebar-accent-foreground: 140 14% 96%;
+    --sidebar-border: 152 12% 18%;
+    --sidebar-ring: 151 62% 44%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Rural users tap fast; kill the 300ms delay and the double-tap zoom. */
+    touch-action: manipulation;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-latin);
+    /* 16px floor: anything smaller is unreadable in sunlight and makes iOS zoom on focus. */
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ---- Touch targets --------------------------------------------------
+     WCAG 2.5.5 / Android guidance: 44px minimum on touch devices only, so
+     pointer-based desktop layouts keep shadcn's compact sizing. */
+  @media (pointer: coarse) {
+    button,
+    [role="button"],
+    a[role="button"],
+    summary,
+    select,
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+    textarea {
+      min-height: var(--tap-target);
+    }
+
+    button,
+    [role="button"] {
+      min-width: var(--tap-target);
+    }
+  }
+
+  /* Never let iOS zoom the page when a field is focused. */
+  input,
+  select,
+  textarea {
+    font-size: max(1rem, 16px);
+  }
+
+  :where(input, select, textarea, button, a):focus-visible {
+    outline: 3px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: hsl(var(--brand-accent));
+    color: hsl(var(--brand-accent-foreground));
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--brand-accent));
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--brand));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   Script-aware typography
+
+   LanguageContext sets <html lang> and <html dir>, so these selectors swap the
+   whole app's font automatically — no per-component work needed.
+
+   These rules are deliberately UNLAYERED (not inside `@layer base`): next/font
+   puts `font-family: Inter` on <body> via a class in unlayered CSS, and any
+   layered rule would lose to it no matter how specific. `html[lang] body` is
+   unlayered and more specific, so it wins.
+   ========================================================================== */
+
+html[lang="ur"] body,
+html[lang="pa"] body {
+  font-family: var(--font-nastaliq);
+  font-size: 1.0625rem;
+  /* Nastaliq is a steeply sloped script; it is illegible at normal leading. */
+  line-height: 2.15;
+}
+
+html[lang="sd"] body,
+html[lang="ps"] body {
+  font-family: var(--font-naskh);
+  font-size: 1.0625rem;
+  line-height: 1.9;
+}
+
+/* Headings need even more room or the descenders collide with the line below. */
+html[lang="ur"] :is(h1, h2, h3, h4),
+html[lang="pa"] :is(h1, h2, h3, h4) {
+  line-height: 1.9;
+  padding-block: 0.15em;
+}
+
+/* Keep numbers, prices, phone numbers and timestamps LTR inside RTL text. */
+html[dir="rtl"] :is(.ltr-nums, time, [data-numeric]) {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+@layer utilities {
+  /* ---- RTL-aware helpers ----------------------------------------------
+     Tailwind 3.4 already ships logical spacing (ms-*, me-*, ps-*, pe-*) and the
+     `rtl:` / `ltr:` variants — PREFER THOSE. These cover the gaps. */
+
+  /** Mirror an icon that encodes direction (arrows, chevrons, back buttons). */
+  .flip-rtl {
+    transition: transform 0.15s ease;
+  }
+  [dir="rtl"] .flip-rtl {
+    transform: scaleX(-1);
+  }
+
+  /** Force a fragment LTR inside RTL text — prices, "03xx" numbers, URLs, code. */
+  .force-ltr {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+  .force-rtl {
+    direction: rtl;
+    unicode-bidi: isolate;
+  }
+
+  /** Row that reverses with the document direction. */
+  .row-logical {
+    display: flex;
+    flex-direction: row;
+  }
+  [dir="rtl"] .row-logical {
+    flex-direction: row-reverse;
+  }
+
+  /** Text aligned to the reading start/end regardless of direction. */
+  .text-start-logical {
+    text-align: start;
+  }
+  .text-end-logical {
+    text-align: end;
+  }
+
+  /** Border on the reading-start / reading-end edge (e.g. a callout stripe). */
+  .border-s-accent {
+    border-inline-start: 4px solid hsl(var(--brand-accent));
+  }
+  .border-e-accent {
+    border-inline-end: 4px solid hsl(var(--brand-accent));
+  }
+
+  /** Explicit script overrides for mixed-language screens (a language picker,
+      an Urdu quote inside an English page, ...). */
+  .font-latin {
+    font-family: var(--font-latin);
+  }
+  .font-nastaliq {
+    font-family: var(--font-nastaliq);
+    line-height: 2.15;
+  }
+  .font-naskh {
+    font-family: var(--font-naskh);
+    line-height: 1.9;
+  }
+
+  /* ---- Layout ---------------------------------------------------------- */
+
+  /** Page shell: comfortable at 360px, capped on tablets. */
+  .container-app {
+    width: 100%;
+    max-width: 40rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  /** Leaves room for the fixed bottom navigation + iOS home indicator. */
+  .pb-nav {
+    padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px) + 0.5rem);
+  }
+  .safe-b {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .safe-t {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  /** Guaranteed 44px hit area — use on icon-only buttons. */
+  .tap-target {
+    min-width: var(--tap-target);
+    min-height: var(--tap-target);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /** Horizontal scroller that never makes the page scroll sideways. */
+  .scroll-x {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* ---- Brand surfaces --------------------------------------------------- */
+
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, hsl(var(--brand)) 0%, hsl(var(--brand-accent)) 100%);
+    color: hsl(var(--brand-foreground));
+  }
+
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(46 78% 62%) 100%);
+    color: hsl(var(--gold-foreground));
+  }
+
+  /** Sky panel for the weather header. */
+  .bg-sky-gradient {
+    background: linear-gradient(135deg, hsl(202 84% 32%) 0%, hsl(198 80% 46%) 55%, hsl(192 70% 62%) 100%);
+    color: #fff;
+  }
+
+  /** Thin gold rule — the flag-inspired divider used under section headings. */
+  .rule-gold {
+    border-block-end: 2px solid hsl(var(--gold));
+  }
+
+  /** Badge for anything the API tagged `source: "sample"`. Required by the
+      contract: sample data must never look like live data. */
+  .badge-sample {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: hsl(var(--gold-surface));
+    color: hsl(var(--gold-foreground));
+    border: 1px solid hsl(var(--gold) / 0.5);
+  }
+
+  .text-price-up {
+    color: hsl(var(--price-up));
+  }
+  .text-price-down {
+    color: hsl(var(--price-down));
+  }
+
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  @media (hover: hover) {
+    .card-hover:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px hsl(var(--brand) / 0.12);
+    }
+  }
+
+  /** Skeleton shimmer for loading states. */
+  .skeleton {
+    background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--secondary)) 50%, hsl(var(--muted)) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+    border-radius: var(--radius);
+  }
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes grow {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/** Mic / voice-input pulse. */
+@keyframes voice-pulse {
+  0% {
+    box-shadow: 0 0 0 0 hsl(var(--brand-accent) / 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 12px hsl(var(--brand-accent) / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 hsl(var(--brand-accent) / 0);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-grow {
+  animation: grow 2s ease-in-out infinite;
+}
+
+.voice-pulse {
+  animation: voice-pulse 1.5s ease-in-out infinite;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid hsl(var(--muted));
+  border-top-color: hsl(var(--brand-accent));
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   Print
+   ========================================================================== */
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
