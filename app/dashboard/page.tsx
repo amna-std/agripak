@@ -323,7 +323,7 @@ export default function DashboardPage() {
     <div className="container-app space-y-5 py-4 sm:py-6 lg:max-w-6xl">
       {/* ------------------------------------------------------- greeting */}
       <section className="overflow-hidden rounded-2xl bg-brand-gradient p-4 shadow-sm sm:p-6">
-        <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div className="min-w-0 flex-1">
             <p className="text-sm font-medium leading-[1.9] text-primary-foreground/80">
               {t(greetingKey(new Date().getHours()))}
@@ -331,19 +331,24 @@ export default function DashboardPage() {
             {summary.status === "loading" ? (
               <Skeleton className="mt-1 h-8 w-48 bg-white/20" />
             ) : (
-              <h1 className="mt-0.5 break-words text-2xl font-bold leading-[1.6] text-primary-foreground sm:text-3xl">
+              // dir="auto" so a Latin name reads left-to-right inside an RTL
+              // page; break-normal so it never splits mid-word.
+              <h1
+                dir="auto"
+                className="mt-0.5 break-normal text-2xl font-bold leading-[1.6] text-primary-foreground sm:text-3xl"
+              >
                 {displayName}
               </h1>
             )}
             {(district || province) && (
               <p className="mt-1 flex items-center gap-1.5 text-sm leading-[1.9] text-primary-foreground/90">
                 <MapPin className="h-4 w-4 shrink-0" aria-hidden />
-                <span className="truncate leading-[1.9]">{[district, province].filter(Boolean).join(", ")}</span>
+                <span dir="auto" className="leading-[1.9]">{[district, province].filter(Boolean).join(", ")}</span>
               </p>
             )}
           </div>
 
-          <div className="flex shrink-0 items-center gap-2">
+          <div className="flex shrink-0 flex-wrap items-center gap-2">
             {seasonLabel && (
               <Badge className="border-white/25 bg-white/15 text-primary-foreground hover:bg-white/25">
                 <span className="leading-[1.8]">{seasonLabel}</span>
