@@ -86,7 +86,7 @@ export const PUT = handler(async (req: Request, ctx: Ctx) => {
         payload.trend === "rising" ? "rising" : payload.trend === "falling" ? "falling" : "stable"
       consultation.messages.push({
         sender: auth.userId,
-        // Pakistani rupees — the old code hardcoded the Indian symbol here.
+        // Pakistani rupees.
         message: `Market update: current price Rs ${payload.currentPrice ?? "n/a"}, trend ${trend}`,
         messageType: "recommendation",
       })

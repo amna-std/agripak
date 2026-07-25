@@ -1,4 +1,4 @@
-// DISABLED (out of scope for v1) — see AGENT_CONTRACT.md
+// DISABLED (out of scope for v1) — see the note below
 //
 // Why this is off rather than deleted:
 //   1. It never sent a real OTP. It generated a random code and only logged it
@@ -6,7 +6,7 @@
 //   2. It stored codes in an in-process `Map`, which cannot work on Vercel —
 //      each serverless invocation gets its own memory, so the verify call would
 //      almost always land in a lambda that had never seen the code.
-//   3. It validated Indian mobile numbers (/^[6-9]\d{9}$/), not Pakistani ones.
+//   3. Its number validation was not the Pakistani 03XXXXXXXXX format.
 //
 // Re-enabling this needs a real SMS provider (Twilio or a local Pakistani
 // gateway) plus shared storage for the codes (a MongoDB collection with a TTL

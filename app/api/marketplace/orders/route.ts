@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic"
  * a client-supplied price is a discount coupon for anyone with curl.
  */
 
-/** `upi` exists in the legacy schema enum but is an Indian rail; not offered here. */
+/** `upi` exists in the legacy schema enum but is a foreign rail; not offered here. */
 const PAYMENT_METHODS = ["cod", "online"] as const
 const ORDER_STATUSES = ["pending", "confirmed", "processing", "shipped", "delivered", "cancelled"] as const
 

@@ -58,10 +58,10 @@ const SOURCE_META: Record<string, { source: Exclude<PriceSource, "cache" | "samp
 /**
  * Sources we will serve as real prices.
  *
- * Deliberately excludes `agmarknet` (India's price portal) and `seeded` (demo
+ * Deliberately excludes `seeded` (demo
  * fixtures). The contract is explicit that fixture data must surface as
  * `source: "sample"`, so fixtures must never be read back as cached truth — and
- * the database this replaces is still full of Indian seed rows.
+ * the database may still hold demo seed rows.
  */
 const TRUSTED_SOURCES = ["amis", "pbs", "scraping", "manual", "api"]
 

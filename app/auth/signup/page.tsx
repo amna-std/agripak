@@ -7,7 +7,7 @@
  * returned token and populates the auth context — so a new user lands logged in.
  *
  * The API enforces: name (>= 2), mobile `03XXXXXXXXX`, password (>= 6), village,
- * district and `state` (a Pakistani province). The Indian state list and the fake
+ * district and `state` (a Pakistani province). The fake
  * "12345" OTP gate that used to block this form are both gone; provinces and
  * districts now come from lib/data/pakistan-locations.ts so the values the form
  * submits are ones the backend already recognises.

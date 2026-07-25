@@ -5,8 +5,7 @@
  *
  * Everything on this page comes from `GET /api/schemes` (CM Punjab Kissan Card,
  * Green Tractor, Apna Khet Apna Rozgar, Benazir Hari Card, ZTBL, SBP Zarkhez-e,
- * solar tubewell subsidies, crop-loan insurance). The Indian scheme list this
- * file used to hardcode — PM-KISAN, Soil Health Card, PMFBY, KCC — is gone.
+ * solar tubewell subsidies, crop-loan insurance). Nothing is hardcoded here.
  *
  * The eligibility checker posts the farmer's province, land size and tenure to
  * `POST /api/schemes/check-eligibility` and shows exactly what the matcher

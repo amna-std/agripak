@@ -4,10 +4,9 @@
  * Farm onboarding — the four things the advisory engine actually needs:
  * land size, soil, water source and the crops you grow, plus a language choice.
  *
- * Saves through `PUT /api/user/profile` (see `userApi.updateProfile`). The old
- * version posted to a non-existent `/api/profile` with a hardcoded `userId`, so
- * nothing was ever stored; it also offered Hindi/Telugu/Bangla and Indian soil
- * vocabulary. All of that is gone.
+ * Saves through `PUT /api/user/profile` (see `userApi.updateProfile`), against
+ * the signed-in user rather than any client-supplied id. Soil and tenure options
+ * use the vocabulary Pakistani extension services actually use.
  *
  * Note on units: the User model stores `landSize.unit` as `acres | hectares`
  * only. Farmers in Punjab and KP think in kanal, so the form accepts kanal and

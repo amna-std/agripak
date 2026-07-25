@@ -88,7 +88,7 @@ export function escapeRegex(value: string): string {
 /**
  * Returns `value` when the model's schema enum allows it, otherwise a safe
  * fallback. The shared models are owned by another workstream and their
- * language enums are mid-migration (Indian -> Pakistani locales), so routes
+ * language enums are still being tightened, so routes
  * must not hard-fail on a value the schema has not learned about yet.
  */
 export function enumValue(model: any, path: string, value: any, fallback: string): string {

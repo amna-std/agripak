@@ -10,7 +10,7 @@
  *
  * Deferred features (videos, farming ideas, WhatsApp groups, the duplicate
  * "doctor" page, ratings, analytics) are deliberately absent: their files still
- * exist on disk per AGENT_CONTRACT.md rule 7, but nothing links to them.
+ * exist on disk deliberately kept but disabled, but nothing links to them.
  */
 
 import {

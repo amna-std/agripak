@@ -16,7 +16,7 @@
  *     and is-this-even-a-plant check first, and makes "healthy",
  *     "not_a_plant" and "unclear" first-class, expected answers.
  *
- *  2. WRONG CONTINENT. Left alone, the model reaches for US/Indian extension
+ *  2. WRONG COUNTRY. Left alone, the model reaches for foreign extension
  *     literature — recommending products not sold here, or diseases that do not
  *     occur in Pakistan. So the prompt carries a Pakistan-specific disease list
  *     with local farmer names.

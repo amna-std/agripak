@@ -1,4 +1,4 @@
-// DISABLED (out of scope for v1) — see AGENT_CONTRACT.md rule 7.
+// DISABLED (out of scope for v1) — see the note below rule 7.
 //
 // Why: this screen was a second, older crop-disease UI. It duplicates
 // /crop-scan, which is now the single photo-diagnosis flow wired to
@@ -54,7 +54,7 @@ export default function DiseaseExpertPage() {
 }
 
 /* ==========================================================================
-   Original implementation, preserved per AGENT_CONTRACT.md rule 7.
+   Original implementation, preserved deliberately kept but disabled.
    Kept as line comments so the JSX comment markers inside it stay inert.
    ========================================================================== */
 

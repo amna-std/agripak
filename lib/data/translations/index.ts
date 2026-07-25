@@ -2,7 +2,6 @@
  * AgriPak translation registry.
  *
  * Five languages: English + the four Pakistani languages the app ships with.
- * Hindi (`hi`) and Telugu (`te`) were removed in the Pakistan rebuild — do not re-add them.
  *
  * Prefer importing from `@/lib/i18n`, which re-exports everything here plus the
  * `t()` / `formatCurrency()` helpers.

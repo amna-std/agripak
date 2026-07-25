@@ -22,7 +22,7 @@ const STATUSES = ["active", "sold_out", "expired", "inactive"] as const
 /** Roles allowed to list produce. Experts and doctors have no produce to sell. */
 const SELLER_ROLES = ["farmer", "seller", "admin"]
 
-/** Pakistani postal codes are 5 digits (India's 6-digit format is not valid here). */
+/** Pakistani postal codes are 5 digits. */
 const POSTCODE_RE = /^\d{5}$/
 
 const SORTS: Record<string, Record<string, 1 | -1>> = {

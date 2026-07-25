@@ -3,7 +3,7 @@
 /**
  * Checkout — cash on delivery only.
  *
- * HONESTY NOTE (AGENT_CONTRACT.md rules 5 and 6): AgriPak has no payment
+ * HONESTY NOTE (the project conventions rules 5 and 6): AgriPak has no payment
  * provider integrated. There is deliberately no card form here — a form that
  * looks like it takes money and does not is worse than no checkout at all. The
  * order is recorded with `payment.method = "cod"` and the buyer pays the seller

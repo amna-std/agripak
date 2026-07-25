@@ -3,7 +3,6 @@
  *
  * Five languages: English (en) + Urdu (ur), Punjabi/Shahmukhi (pa), Sindhi (sd),
  * Pashto (ps). All four Pakistani languages are right-to-left.
- * Hindi and Telugu were removed in the Pakistan rebuild — do not re-add them.
  *
  * Dictionaries live in `lib/data/translations/*`. `en.ts` is the schema source of
  * truth, so a key missing from any other locale is a TypeScript error.
@@ -178,7 +177,7 @@ export function formatNumber(value: number | string, options: NumberFormatOption
 /** ISO code for the only currency this app deals in. */
 export const CURRENCY_CODE = "PKR"
 
-/** `"Rs"` is the default; `"₨"` and `"PKR"` are the other accepted forms. The Indian rupee sign is never valid. */
+/** `"Rs"` is the default; `"₨"` and `"PKR"` are the other accepted forms. */
 export type CurrencySymbol = "Rs" | "₨" | "PKR"
 
 export interface CurrencyFormatOptions extends NumberFormatOptions {

@@ -1,4 +1,4 @@
-// DISABLED (out of scope for v1) — see AGENT_CONTRACT.md
+// DISABLED (out of scope for v1) — see the note below
 //
 // Paired with /api/auth/send-otp, which is also disabled. This handler read
 // from its own in-process `Map`, so on Vercel it would look for the code in a

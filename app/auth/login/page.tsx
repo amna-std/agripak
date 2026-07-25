@@ -6,7 +6,7 @@
  * The fake OTP flow that used to live here accepted a hardcoded "12345" and
  * minted a client-side token, which let anyone past the door. `/api/auth/send-otp`
  * and `/api/auth/verify-otp` are now disabled (501), so the UI is gone too —
- * per AGENT_CONTRACT rule 6, a feature either works or is cleanly removed from
+ * per the project's no-broken-shells rule, a feature either works or is cleanly removed from
  * the interface. Password login goes through `useAuth().login()` so the provider
  * state is populated and the dashboard guard does not bounce the user back.
  */

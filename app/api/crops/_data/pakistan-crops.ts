@@ -7,7 +7,7 @@
  * actually used in Pakistan (Rabi = Nov–Apr, Kharif = May–Oct) broken down by
  * region, because a Sindh wheat farmer sows six weeks after a Pothohar one.
  *
- * Honesty rules (see AGENT_CONTRACT.md):
+ * Honesty rules (see the note below):
  *  - Agronomy here is standard provincial-extension guidance, not live data.
  *    Every crop exposes `advisory` telling the farmer to confirm locally.
  *  - No fabricated rupee figures. Cost/price are qualitative only; live prices

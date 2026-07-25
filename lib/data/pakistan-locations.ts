@@ -183,7 +183,7 @@ export const DEFAULT_LOCATION: PakistanLocation =
 
 /**
  * Outer bounding box of Pakistan — a cheap first rejection test only.
- * A plain box is far too generous (it swallows Delhi and most of Rajasthan),
+ * A plain box is far too generous — it reaches well past the eastern border —
  * so anything inside the box is then checked against PAKISTAN_OUTLINE.
  */
 export const PAKISTAN_BOUNDS = {
@@ -200,7 +200,7 @@ export const PAKISTAN_BOUNDS = {
  * and Gwadar are comfortably inside.
  *
  * Deliberately coarse: its job is to reject obviously-foreign coordinates
- * (the old code defaulted to the geographic centre of India), not to
+ * (a bad default lands the farmer in the wrong country entirely), not to
  * adjudicate disputed borders.
  */
 export const PAKISTAN_OUTLINE: [number, number][] = [

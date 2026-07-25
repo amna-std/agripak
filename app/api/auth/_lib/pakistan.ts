@@ -84,7 +84,7 @@ export const POSTCODE_ERROR = "Enter a valid 5-digit Pakistani postal code"
 
 /* --------------------------------------------------------------- languages */
 
-/** en + the four RTL languages the app ships. Hindi/Telugu are gone. */
+/** en + the four right-to-left languages the app ships. */
 export const LANGUAGES = ["en", "ur", "pa", "sd", "ps"] as const
 export type Language = (typeof LANGUAGES)[number]
 
@@ -156,7 +156,7 @@ export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 /* -------------------------------------------------------- voice language */
 
 /**
- * `lib/models/User.js` still carries an India-era `pre("save")` hook that maps
+ * `lib/models/User.js` carries a `pre("save")` hook that maps
  * `preferredLanguage` through an `{ en, hi, te }` table and falls back to
  * "en-US" for everything else — so *every* Pakistani user is written with
  * `voiceLanguage: "en-US"`, a value the model's own enum no longer allows.

@@ -85,7 +85,7 @@ export interface ApplicationData {
     name: string
     phone: string
     email?: string
-    /** Pakistan's national identity number (NADRA), not India's Aadhaar. */
+    /** CNIC — Pakistan's national identity number, issued by NADRA. */
     cnic: string
   }
   farmingInfo: {

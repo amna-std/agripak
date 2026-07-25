@@ -382,7 +382,7 @@ export function paginate<T>(items: T[], params: URLSearchParams, defaultLimit = 
   }
 }
 
-/** Filter options the UI can render without hardcoding Indian values. */
+/** Filter options the UI can render without hardcoding any values. */
 export function filterOptions() {
   return {
     seasons: [

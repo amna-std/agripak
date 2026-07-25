@@ -1,6 +1,6 @@
 "use client"
 
-// DISABLED (out of scope for v1) — see AGENT_CONTRACT.md rule 7.
+// DISABLED (out of scope for v1) — see the note below rule 7.
 //
 // This page was a direct-message inbox that called `/api/messages` with a
 // hardcoded user id. That route does not exist in the App Router rebuild and

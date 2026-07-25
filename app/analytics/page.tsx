@@ -1,4 +1,4 @@
-// DISABLED (out of scope for v1) — see AGENT_CONTRACT.md
+// DISABLED (out of scope for v1) — see the note below
 //
 // There is no analytics endpoint and no verified farm-record data to drive one:
 // `GET /api/user/dashboard` only exposes what the farmer typed into their own

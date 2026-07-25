@@ -32,9 +32,9 @@ export async function optionalAuth(req: Request): Promise<any | null> {
 const LANGUAGES: LanguageCode[] = ["en", "ur", "pa", "sd", "ps"]
 
 /**
- * Accepts whatever the client sent and returns a supported code.
- * Hindi/Telugu were removed from the product, so `hi`/`te` fall back to English
- * rather than producing an answer in a script this audience cannot read.
+ * Accepts whatever the client sent and returns a supported code. Anything the
+ * app does not ship falls back to English rather than answering in a script
+ * this audience cannot read.
  */
 export function normaliseLanguage(input: unknown): LanguageCode | "auto" {
   if (typeof input !== "string") return "auto"

@@ -19,10 +19,7 @@ import path from "node:path"
 const ROOT = process.cwd()
 
 /** Files that are intentionally not wired up; excluded from the check. */
-const IGNORED_FILES = [
-  // Unused legacy component kept on disk but never imported (see its header).
-  "components/RatingSystem.tsx",
-]
+const IGNORED_FILES = []
 
 function walk(dir, exts) {
   const out = []

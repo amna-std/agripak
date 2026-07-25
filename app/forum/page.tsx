@@ -12,7 +12,7 @@
  *
  * There is no reply endpoint yet, so existing replies are shown read-only and
  * no "post a reply" control is offered — a button that cannot work is worse
- * than no button (AGENT_CONTRACT.md rule 6).
+ * than no button (the project conventions rule 6).
  */
 
 import { useCallback, useEffect, useMemo, useState } from "react"

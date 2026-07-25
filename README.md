@@ -39,8 +39,9 @@ built around three things such a demo cannot do:
 1. **It is honest about uncertainty.** Point it at a blurry photo, a healthy plant, or a tractor,
    and it says so instead of naming a disease. That is a deliberate, tested behaviour (see §4).
 2. **It is Pakistan-specific, not "South Asia" flavoured.** Left alone, a language model answers
-   Pakistani wheat questions with Indian MSP figures and PM-KISAN. Everything here — the disease
-   priors, the scheme list, the units, the seasons — is written against Pakistani reality.
+   Pakistani wheat questions using a neighbouring country's support prices and subsidy schemes.
+   Everything here — the disease priors, the scheme list, the units, the seasons — is written
+   against Pakistani reality.
 3. **It uses real live data**, and labels it when it can't (see the honesty note in §3).
 
 ---
@@ -167,7 +168,7 @@ These are the failure modes that separate a usable tool from a dangerous one:
    disease — from a blurry photo, from a healthy plant, from a photo of a goat. The prompt forces
    an image-quality and is-this-even-a-plant check *first*, and makes `healthy`, `not_a_plant` and
    `unclear` first-class expected answers.
-2. **Wrong continent.** Left alone the model reaches for US/Indian extension literature and
+2. **Wrong country.** Left alone the model reaches for foreign extension literature and
    recommends products not sold in Pakistan. The prompt carries a Pakistan-specific disease list
    with the names farmers actually use.
 3. **Look-alikes.** Nutrient deficiency, salinity injury, herbicide drift, water stress and sunburn

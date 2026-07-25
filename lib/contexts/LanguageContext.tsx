@@ -56,7 +56,7 @@ export interface LanguageContextType {
   isRTL: boolean
   /** BCP-47 locale of the active language (ur-PK, pa-PK, sd-PK, ps-AF, en-PK). */
   locale: string
-  /** Format PKR — `formatCurrency(3500)` -> "Rs 3,500". Never the Indian rupee sign. */
+  /** Format PKR — `formatCurrency(3500)` -> "Rs 3,500". */
   formatCurrency: (amount: number | string | null | undefined, options?: CurrencyFormatOptions) => string
   /** Grouped Latin-digit number, e.g. 1234567 -> "1,234,567". */
   formatNumber: (value: number | string, options?: NumberFormatOptions) => string
@@ -221,7 +221,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       window.speechSynthesis.cancel()
 
       const utterance = new SpeechSynthesisUtterance(text)
-      // ur-PK / pa-PK / sd-PK / ps-AF / en-PK — never the Indian hi-IN or te-IN.
+      // Pakistani locales only: ur-PK / pa-PK / sd-PK / ps-AF / en-PK.
       utterance.lang = getLocale(language)
       utterance.rate = 0.9
       utterance.pitch = 1

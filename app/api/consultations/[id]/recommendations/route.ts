@@ -72,7 +72,6 @@ export const POST = handler(async (req: Request, ctx: Ctx) => {
     timeline: body.timeline || undefined,
     cost: {
       estimated: Number.isFinite(estimated) ? estimated : 0,
-      // Pakistani rupees — the model still defaults to INR.
       currency: "PKR",
       breakdown: Array.isArray(body.cost?.breakdown) ? body.cost.breakdown : [],
     },

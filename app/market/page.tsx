@@ -4,7 +4,7 @@
  * Market prices — real rates from GET /api/market/prices, with the saved price
  * history from GET /api/market/trends behind the chart.
  *
- * HONESTY CONTRACT (AGENT_CONTRACT.md rule 5): the API tags every response with
+ * HONESTY CONTRACT (the project's data-honesty rule): the API tags every response with
  * `source: "amis" | "pbs" | "cache" | "sample"` and sometimes a `notice`. Both
  * are surfaced permanently in the UI — a cached or sample figure must never
  * look like a live quote.

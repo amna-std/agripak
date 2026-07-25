@@ -3,11 +3,7 @@
 /**
  * Crop guidance — the Pakistani Rabi/Kharif calendar plus a browsable crop guide.
  *
- * The page that used to live here called two endpoints that do not exist
- * (`/api/crop-guidance?farmerId=default_farmer` and
- * `/api/weather?district=Guntur&state=Andhra Pradesh`), so it rendered an empty
- * shell and a stuck "Loading weather..." forever. It is rebuilt against the
- * real API:
+ * Data comes from the crops API:
  *
  *   GET /api/crops/calendar?province=  → what to sow and harvest this month,
  *                                        field activities, seasonal tips

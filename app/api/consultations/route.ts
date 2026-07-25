@@ -160,7 +160,6 @@ export const POST = handler(async (req: Request) => {
     },
     location,
     tags: Array.isArray(body.tags) ? body.tags.filter(Boolean) : [],
-    // Written explicitly: the shared model still defaults cost.currency to "INR".
     cost: { consultationFee: Number(body.consultationFee) || 0, currency: "PKR", isPaid: false },
   })
 

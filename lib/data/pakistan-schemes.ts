@@ -1,9 +1,6 @@
 /**
  * Real Pakistani government schemes for farmers.
  *
- * This file replaces the Indian scheme list the project was seeded with
- * (PM-KISAN, Soil Health Card, PMFBY, KCC …). Nothing Indian survives here.
- *
  * Accuracy rules:
  *  - Every figure below is taken from the government or central-bank source
  *    listed in that scheme's `sources` array. Figures that could not be

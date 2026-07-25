@@ -21,7 +21,7 @@ export type TranslationKey = {
   [N in keyof TranslationSchema]: `${N & string}.${keyof TranslationSchema[N] & string}`
 }[keyof TranslationSchema]
 
-/** Supported language codes. Hindi/Telugu were removed in the Pakistan rebuild. */
+/** Supported language codes. */
 export type LanguageCode = "en" | "ur" | "pa" | "sd" | "ps"
 
 /** Text direction. `ur`, `pa`, `sd` and `ps` are all right-to-left. */

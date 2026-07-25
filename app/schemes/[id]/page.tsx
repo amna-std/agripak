@@ -3,11 +3,9 @@
 /**
  * Government scheme detail.
  *
- * Everything here comes from GET /api/schemes/[id]. The page that used to live
- * at this path hardcoded a single Indian scheme (PM-KISAN, "₹6,000/year",
- * documents: ["Aadhaar Card", ...]) with Hindi and Telugu copy, and imported an
- * `IndianRupee` icon. All of that is gone: the schemes are real Pakistani ones
- * and every field — including the document list — comes from the API.
+ * Everything here comes from GET /api/schemes/[id] — including the document
+ * list, so a scheme that wants a Fard (land record) says so and one that only
+ * wants a CNIC does not. Nothing on this page is hardcoded.
  *
  * Two fields get their own treatment rather than being buried:
  *   `caveats` — where the published rules are ambiguous. A farmer deciding
