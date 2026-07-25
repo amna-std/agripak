@@ -5,7 +5,7 @@
   "crons": [
     {
       "path": "/api/market/refresh",
-      "schedule": "0 */6 * * *"
+      "schedule": "40 1 * * *"
     },
     {
       "path": "/api/schemes/refresh",
