@@ -321,7 +321,7 @@ export const ur: TranslationSchema = {
     modalPrice: "عام نرخ",
     range: "حد",
     pricesShown: "{count} نرخ",
-    coverageNote: "AMIS صرف پنجاب کی منڈیوں کے نرخ شائع کرتا ہے۔",
+    coverageNote: "پنجاب کے لیے تھوک منڈی نرخ، اور ملک بھر کے 17 شہروں کے پرچون نرخ۔",
     clearFilters: "فلٹر ہٹائیں",
     filters: "فلٹر",
     searchCrop: "جنس تلاش کریں",

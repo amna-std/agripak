@@ -324,7 +324,7 @@ export const pa: TranslationSchema = {
     modalPrice: "عام بھاء",
     range: "حد",
     pricesShown: "{count} بھاء",
-    coverageNote: "AMIS صرف پنجاب دیاں منڈیاں دے بھاء چھاپدا اے۔",
+    coverageNote: "پنجاب لئی تھوک منڈی بھاء، تے ملک بھر دے 17 شہراں دے پرچون بھاء۔",
     clearFilters: "فلٹر ہٹاؤ",
     filters: "فلٹر",
     searchCrop: "جنس لبھو",

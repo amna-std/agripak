@@ -321,7 +321,7 @@ export const ps: TranslationSchema = {
     modalPrice: "عام بیه",
     range: "حد",
     pricesShown: "{count} بیې",
-    coverageNote: "AMIS يوازې د پنجاب د منډیو بیې خپروي.",
+    coverageNote: "د پنجاب لپاره د منډۍ ټوک بیې، او په ټول هېواد کې د ۱۷ ښارونو پرچون بیې.",
     clearFilters: "فلټرونه پاک کړئ",
     filters: "فلټر",
     searchCrop: "توکی ولټوئ",

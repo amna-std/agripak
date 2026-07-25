@@ -321,7 +321,7 @@ export const sd: TranslationSchema = {
     modalPrice: "عام اگهه",
     range: "حد",
     pricesShown: "{count} اگهه",
-    coverageNote: "AMIS رڳو پنجاب جي منڊين جا اگهه شايع ڪري ٿو.",
+    coverageNote: "پنجاب لاءِ هول سيل منڊي اگهه، ۽ ملڪ جي 17 شهرن جا پرچون اگهه.",
     clearFilters: "فلٽر هٽايو",
     filters: "فلٽر",
     searchCrop: "جنس ڳوليو",

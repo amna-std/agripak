@@ -335,7 +335,7 @@ export const en = {
     modalPrice: "Common rate",
     range: "Range",
     pricesShown: "{count} prices",
-    coverageNote: "AMIS publishes Punjab mandi rates only.",
+    coverageNote: "Wholesale mandi rates for Punjab, plus retail prices for 17 cities nationwide.",
     clearFilters: "Clear filters",
     filters: "Filters",
     searchCrop: "Search a crop",
