@@ -4,8 +4,12 @@
 Ask a question in Urdu, photograph a sick leaf, check today's real mandi rate, and find the
 government scheme you actually qualify for — from a cheap Android phone, in your own language.
 
-> 🔗 **Live app:** _(deployed URL goes here)_
-> 📦 **Repository:** _(public GitHub URL goes here)_
+> ### 🔗 **Live app: https://agripak.vercel.app**
+> 📦 **Repository:** https://github.com/amna-std/agripak
+>
+> Try it with the demo account — mobile **`03001234567`**, password **`password123`** —
+> or register your own. Switch to **اردو** with the globe icon to see the whole interface
+> flip right-to-left.
 
 ---
 
@@ -192,7 +196,39 @@ Every diagnosis ships with a disclaimer that it is a reading of a photograph, no
 
 ## 5. Screenshots
 
-_(added after deployment)_
+All captured from the live deployment.
+
+### The landing page
+![AgriPak landing page](docs/screenshots/01-landing.png)
+
+### Dashboard — live weather, real advice, prices near you
+Everything here is fetched, not mocked: current conditions for the farmer's own district, the
+day's advisory derived from the actual forecast, mandi rates and schemes they qualify for.
+![Dashboard](docs/screenshots/02-dashboard.png)
+
+### 📷 Crop disease diagnosis from a photograph
+The flagship feature. A photo of a rust-infected wheat leaf returns the disease with its local
+Urdu name (**بھوری کنگی**), a calibrated confidence, a cultural step *before* any chemical, a
+named product with a per-acre dose and cost, safety instructions, organic alternatives, the
+alternative diagnoses it considered and how to tell them apart, and when to stop and call a
+human.
+![Crop disease diagnosis](docs/screenshots/03-crop-scan.png)
+
+### Market prices — two sources, never blended
+Wholesale mandi rates and retail bazaar prices are labelled separately, each with its provider
+badge, in PKR per 100 kg and per maund.
+![Market prices](docs/screenshots/04-market.png)
+
+### Government schemes
+Real Pakistani schemes with verified figures, eligibility, required documents and official links.
+![Government schemes](docs/screenshots/07-schemes.png)
+
+### اردو — right-to-left on a phone
+The entire interface mirrors, in Nastaliq, at phone width. Not English text in a flipped box.
+<img src="docs/screenshots/05-urdu-mobile.png" alt="Urdu right-to-left on mobile" width="380"/>
+
+### The assistant answering in Urdu
+![AI assistant in Urdu](docs/screenshots/06-ai-urdu.png)
 
 ---
 
